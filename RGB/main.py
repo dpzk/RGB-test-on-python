@@ -1,5 +1,7 @@
+# import tkinter
 from tkinter import *
 
+# build window on tkinter
 tk = Tk()
 tk.wm_attributes('-fullscreen', True)
 tk.resizable(False, False)
@@ -7,11 +9,14 @@ tk.update()
 canvas = Canvas(tk, width = tk.winfo_width(), height = tk.winfo_height(), bd = 0, highlightthickness = 0)
 canvas.pack()
 background = canvas.create_rectangle(0, 0, tk.winfo_width(), tk.winfo_height(), fill = '#FF0000', outline = '')
+
+# define refresh function
 def load(R, G, B):
     canvas.itemconfig(background, fill = '#%02X%02X%02X' % (R, G, B))
     tk.update_idletasks()
     tk.update()
 
+# main loop
 while True:
     R = 255
     G = 0
